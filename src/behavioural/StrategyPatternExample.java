@@ -55,7 +55,7 @@ class ShoppingCart {
 }
 
 //Example usage
-public class StrategyPattern {
+public class StrategyPatternExample {
 	public static void main(String[] args) {
 		// Create a shopping cart
 		ShoppingCart cart = new ShoppingCart();
