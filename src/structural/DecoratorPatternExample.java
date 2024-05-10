@@ -22,6 +22,7 @@ class SimpleCake implements Cake {
 
 //Decorator abstract class
 abstract class CakeDecorator implements Cake {
+	
 	protected Cake cake;
 
 	public CakeDecorator(Cake cake) {
@@ -41,6 +42,7 @@ abstract class CakeDecorator implements Cake {
 
 //Concrete decorator classes
 class ChocolateDecorator extends CakeDecorator {
+	
 	public ChocolateDecorator(Cake cake) {
 		super(cake);
 	}
@@ -57,6 +59,7 @@ class ChocolateDecorator extends CakeDecorator {
 }
 
 class SprinklesDecorator extends CakeDecorator {
+	
 	public SprinklesDecorator(Cake cake) {
 		super(cake);
 	}
