@@ -1,5 +1,16 @@
 package creational;
 
+/**
+ * The factory design pattern says to define an interface ( A java interface or
+ * an abstract class) for creating the object and let the subclasses decide
+ * which class to instantiate. The Factory Pattern is a creational design
+ * pattern that provides an interface for creating objects in a superclass, but
+ * allows subclasses to alter the type of objects that will be created. This
+ * pattern promotes loose coupling by abstracting the object creation process
+ * and allowing the client code to work with the interface rather than the
+ * concrete implementation.
+ * 
+ */
 //Interface for product
 interface Vehicle {
 	void drive();

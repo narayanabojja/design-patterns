@@ -1,5 +1,12 @@
 package behavioural;
 
+/**
+ * Strategy pattern is used when we have multiple algorithms for a specific
+ * task, and the client decides the actual implementation to be used at runtime.
+ * A strategy pattern is also known as a policy pattern. We define multiple
+ * algorithms and let client applications pass the algorithm to be used as a
+ * parameter.
+ */
 //Strategy interface
 interface PaymentStrategy {
 	void pay(int amount);

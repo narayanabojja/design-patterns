@@ -1,5 +1,13 @@
 package creational;
 
+/**
+ * The Singleton Pattern is a design pattern that restricts the instantiation of
+ * a class to one object. This means that only one instance of the class can
+ * exist in the entire application, providing a global point of access to that
+ * instance. It's useful when exactly one object is needed to coordinate actions
+ * across the system, such as a database connection, a logger, or a
+ * configuration manager.
+ */
 class Singleton {
 	// Private static variable to hold the single instance of the class
 	private static Singleton instance;

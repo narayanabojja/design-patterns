@@ -3,6 +3,14 @@ package behavioural;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Observer Pattern is a behavioral design pattern where an object, known as
+ * the subject, maintains a list of its dependents, called observers, and
+ * notifies them of any changes in state. This pattern is useful in scenarios
+ * where multiple objects need to be notified of changes in another object's
+ * state without tight coupling between them.
+ * 
+ */
 //Observer interface
 interface Observer {
 	void update(float temperature);

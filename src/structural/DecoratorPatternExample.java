@@ -1,5 +1,11 @@
 package structural;
 
+/**
+ * The Decorator Pattern is a structural design pattern that allows behavior to
+ * be added to individual objects, dynamically, without affecting the behavior
+ * of other objects from the same class. It is useful when you need to add
+ * functionality to objects in a flexible and reusable way.
+ */
 //Component interface
 interface Cake {
 	String getDescription();
@@ -22,7 +28,7 @@ class SimpleCake implements Cake {
 
 //Decorator abstract class
 abstract class CakeDecorator implements Cake {
-	
+
 	protected Cake cake;
 
 	public CakeDecorator(Cake cake) {
@@ -42,7 +48,7 @@ abstract class CakeDecorator implements Cake {
 
 //Concrete decorator classes
 class ChocolateDecorator extends CakeDecorator {
-	
+
 	public ChocolateDecorator(Cake cake) {
 		super(cake);
 	}
@@ -59,7 +65,7 @@ class ChocolateDecorator extends CakeDecorator {
 }
 
 class SprinklesDecorator extends CakeDecorator {
-	
+
 	public SprinklesDecorator(Cake cake) {
 		super(cake);
 	}
@@ -76,7 +82,7 @@ class SprinklesDecorator extends CakeDecorator {
 }
 
 public class DecoratorPatternExample {
-	
+
 	public static void main(String[] args) {
 		// Create a simple cake
 		Cake simpleCake = new SimpleCake();

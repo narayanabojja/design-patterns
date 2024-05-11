@@ -1,5 +1,13 @@
 package structural;
 
+/**
+ * The Proxy Design Pattern is a structural design pattern that provides a
+ * surrogate or placeholder for another object to control access to it. This
+ * allows you to add an extra level of indirection and control over how, when,
+ * and where the original object is accessed. Proxy objects are commonly used
+ * for lazy initialization, access control, logging, monitoring, caching, and
+ * more.
+ */
 //Interface representing Internet access
 interface Internet {
 	void browse(String website);
@@ -33,7 +41,7 @@ class InternetProxy implements Internet {
 }
 
 public class ProxyDesignPatternExample {
-	
+
 	public static void main(String[] args) {
 		// Create an internet proxy for a user with age 16
 		Internet internet = new InternetProxy(16);

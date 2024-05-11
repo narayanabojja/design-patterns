@@ -1,5 +1,15 @@
 package behavioural;
 
+/**
+ * The Command Pattern is a behavioral design pattern that encapsulates a
+ * request as an object, thereby allowing parameterization of clients with
+ * queues, requests, and operations. It allows the parameterization of objects
+ * with operations so that you can queue them, send them over the network, log
+ * them, etc. Imagine you have a remote control for a light bulb. Normally, when
+ * you press a button on the remote, the light turns on or off. Now, think about
+ * how the remote control works behind the scenes.
+ * 
+ */
 //Command interface
 interface Command {
 	void execute();
