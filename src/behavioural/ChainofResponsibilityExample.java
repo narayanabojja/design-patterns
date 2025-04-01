@@ -1,5 +1,17 @@
 package behavioural;
 
+/**
+ * The Chain of Responsibility design pattern is a behavioral design pattern
+ * that allows an object to pass a request along a chain of handlers. Each
+ * handler in the chain decides either to process the request or to pass it
+ * along the chain to the next handler. How it can used in Spring Boot-based
+ * microservices:
+ * 
+ * We create chain of Filters or Interceptor to 1. Authenticate or authorize
+ * user/client 2. Validation of incoming requests 3. Request data sanitization
+ * 4. Logging request / response data and headers
+ * https://www.geeksforgeeks.org/chain-responsibility-design-pattern/#realworld-analogy-of-the-chain-of-responsibility-design-pattern
+ */
 //Request class
 class Request {
 	private final String type;

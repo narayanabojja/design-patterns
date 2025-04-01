@@ -12,69 +12,51 @@ import java.util.List;
  * and you want to treat individual objects and groups of objects in the same
  * way.
  */
-// Component interface
-interface Component {
-	void operation();
+
+// Component
+interface Graphic {
+    void print();
 }
 
-// Leaf class
-class Leaf implements Component {
-	private String name;
-
-	public Leaf(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public void operation() {
-		System.out.println("Leaf " + name + " operation");
-	}
+// Leaf
+class Ellipse implements Graphic {
+    public void print() {
+        System.out.println("Ellipse");
+    }
 }
 
-// Composite class
-class Composite implements Component {
-	
-	private List<Component> children = new ArrayList<>();
-
-	public void add(Component component) {
-		children.add(component);
-	}
-
-	public void remove(Component component) {
-		children.remove(component);
-	}
-
-	@Override
-	public void operation() {
-		System.out.println("Composite operation:");
-		for (Component component : children) {
-			component.operation();
-		}
-	}
+// Leaf
+class Rectangle implements Graphic {
+    public void print() {
+        System.out.println("Rectangle");
+    }
 }
 
+// Composite
+class CompositeGraphic implements Graphic {
+    private List<Graphic> graphics = new ArrayList<>();
+
+    public void add(Graphic graphic) {
+        graphics.add(graphic);
+    }
+
+    public void print() {
+        for (Graphic graphic : graphics) {
+            graphic.print();
+        }
+    }
+}
+
+// Client
 public class CompositePatternExample {
+    public static void main(String[] args) {
+        Ellipse ellipse = new Ellipse();
+        Rectangle rectangle = new Rectangle();
 
-	public static void main(String[] args) {
-		// Create leaf components
-		Leaf leaf1 = new Leaf("Leaf 1");
-		Leaf leaf2 = new Leaf("Leaf 2");
-		Leaf leaf3 = new Leaf("Leaf 3");
+        CompositeGraphic compositeGraphic = new CompositeGraphic();
+        compositeGraphic.add(ellipse);
+        compositeGraphic.add(rectangle);
 
-		// Create composite components
-		Composite composite1 = new Composite();
-		Composite composite2 = new Composite();
-
-		// Add leaf components to composite1
-		composite1.add(leaf1);
-		composite1.add(leaf2);
-
-		// Add leaf and composite components to composite2
-		composite2.add(leaf3);
-		composite2.add(composite1);
-
-		// Call operation on composite2, which recursively calls operation on all its
-		// children
-		composite2.operation();
-	}
+        compositeGraphic.print();
+    }
 }
