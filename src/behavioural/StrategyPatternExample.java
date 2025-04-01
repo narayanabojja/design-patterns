@@ -7,44 +7,36 @@ package behavioural;
  * algorithms and let client applications pass the algorithm to be used as a
  * parameter.
  */
+
 //Strategy interface
 interface PaymentStrategy {
-	void pay(int amount);
+	void processPayment(int amount);
 }
 
-//Concrete strategy: Credit Card payment
+//Concrete Strategy: Credit Card
 class CreditCardPayment implements PaymentStrategy {
-	private String cardNumber;
-	private String expirationDate;
-	private String cvv;
-
-	public CreditCardPayment(String cardNumber, String expirationDate, String cvv) {
-		this.cardNumber = cardNumber;
-		this.expirationDate = expirationDate;
-		this.cvv = cvv;
-	}
 
 	@Override
-	public void pay(int amount) {
-		System.out.println("Paid " + amount + " using Credit Card.");
-		// Additional logic for processing credit card payment
+	public void processPayment(int amount) {
+		System.out.println("Making " + amount + " payment via Credit Card");
 	}
 }
 
-//Concrete strategy: PayPal payment
-class PayPalPayment implements PaymentStrategy {
-	private String email;
-	private String password;
-
-	public PayPalPayment(String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
+//Concrete Strategy: Debit Card
+class DebitCardPayment implements PaymentStrategy {
 
 	@Override
-	public void pay(int amount) {
-		System.out.println("Paid " + amount + " using PayPal.");
-		// Additional logic for processing PayPal payment
+	public void processPayment(int amount) {
+		System.out.println("Making " + amount + "  payment via Debit Card");
+	}
+}
+
+//Concrete Strategy: UPI
+class UPIPayment implements PaymentStrategy {
+
+	@Override
+	public void processPayment(int amount) {
+		System.out.println("Making  " + amount + "  payment via UPI");
 	}
 }
 
@@ -57,26 +49,19 @@ class ShoppingCart {
 	}
 
 	public void checkout(int amount) {
-		paymentStrategy.pay(amount);
+		paymentStrategy.processPayment(amount);// Polymorphic Behaviour
 	}
 }
 
 //Example usage
 public class StrategyPatternExample {
 	public static void main(String[] args) {
-		// Create a shopping cart
-		ShoppingCart cart = new ShoppingCart();
-
-		// Set payment strategy to credit card
-		cart.setPaymentStrategy(new CreditCardPayment("1234 5678 9012 3456", "12/24", "123"));
-
-		// Perform checkout
-		cart.checkout(100);
-
-		// Change payment strategy to PayPal
-		cart.setPaymentStrategy(new PayPalPayment("example@example.com", "password"));
-
-		// Perform checkout with PayPal
-		cart.checkout(200);
+		ShoppingCart shoppingCart = new ShoppingCart();
+		shoppingCart.setPaymentStrategy(new CreditCardPayment());
+		shoppingCart.checkout(10);
+		shoppingCart.setPaymentStrategy(new DebitCardPayment());
+		shoppingCart.checkout(20);
+		shoppingCart.setPaymentStrategy(new UPIPayment());
+		shoppingCart.checkout(30);
 	}
 }
